@@ -5,11 +5,15 @@ BINANCE_API_KEY = os.getenv('BINANCE_API_KEY', '')
 BINANCE_SECRET_KEY = os.getenv('BINANCE_SECRET_KEY', '')
 
 # ✅ Trading Strategy Selection
-# Options: "EMA_CROSSOVER", "MACD_TREND", "RSI_OVERBOUGHT_OVERSOLD"
-TRADING_STRATEGY = "EMA_CROSSOVER"  # Choose one strategy
+# List of strategies to use (minimum 2 for confirmation)
+TRADING_STRATEGIES = [
+    "EMA_CROSSOVER",
+    "MACD_TREND",
+    "RSI_OVERBOUGHT_OVERSOLD"
+]
 
 # ✅ Futures Trading Configuration
-FUTURES_SYMBOLS = ["BTCUSDT", "ETHUSDT", "BNBUSDT", "XRPUSDT"]  # Add your trading pairs
+FUTURES_SYMBOLS = ["BTCUSDT"]  # Add your trading pairs
 
 # ✅ Risk Management Settings
 RISK_PER_TRADE = 0.01  # Risk 1% of total balance per trade
@@ -28,5 +32,6 @@ TRAILING_STOP_PERCENT = 0.005  # Move stop-loss up/down by 0.5% as price moves
 DCA_STEP_PERCENT = 0.015  # Add more every -1.5% drop
 MAX_DCA_COUNT = 3  # Maximum times to DCA
 
-# ✅ Logging & Debugging
+# ✅ Logging Settings
 ENABLE_LOGGING = True  # Set to False to disable logs
+LOG_FILE = "logs/trade_logs.txt"  # Where trade logs are stored
